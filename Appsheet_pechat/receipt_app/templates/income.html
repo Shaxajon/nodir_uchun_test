@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Income Receipt</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/income.css' %}">
+</head>
+<body>
+    <div class="receipt-container">
+        <div class="receipt">
+            <div class="receipt-header">
+                {{ firma }}
+            </div>
+            <div class="line"></div>
+            <div class="transaction-details">
+                <div>Zavod: {{ zavod }}</div>
+                <div>Balans: {{ balans }} so'm</div>
+                <div>Sana: {{ sana }}</div>
+            </div>
+            <div class="line"></div>
+            <div class="item-header">
+                <span>Mahsulotlar</span>
+                <span>Yig'indisi</span>
+            </div>
+            {% for item in items %}
+                <div class="item">
+                    <span class="item-number">{{ forloop.counter }})</span>
+                    <span class="item-name">{{ item.mahsulot }}</span>
+                    <span class="item-quantity">{{ item.miqdori }} x {{ item.narxi }}</span>
+                    <span class="item-price">{{ item.summasi }} so'm</span>
+                </div>
+            {% empty %}
+                <div>Mahsulotlar mavjud emas</div>
+            {% endfor %}
+            <div class="line"></div>
+            <div class="total-section">
+                <div class="item">
+                    <span>Jami:</span>
+                    <span>{{ jami_xarid_summasi }} so'm</span>
+                </div>
+                <div class="item">
+                    <span>To'landi:</span>
+                    <span>{{ boshlangich_tolov }} so'm</span>
+                </div>
+                <div class="item">
+                    <span>Qarz:</span>
+                    <span>{{ qoldiq_summa }} so'm</span>
+                </div>
+            </div>
+            <div class="line"></div>
+            <div class="qr-code" id="qr-code"></div>
+            <div class="footer">
+                Bizni tanlaganingiz uchun rahmat!
+            </div>
+        </div>
+    </div>
+    <script src="{% static 'js/income.js' %}"></script>
+</body>
+</html>

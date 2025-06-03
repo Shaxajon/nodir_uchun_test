@@ -1,0 +1,113 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: left;
+    background-color: #f8f8f8;
+}
+
+.receipt-container {
+    justify-content: flex-start;
+    align-items: left;
+}
+
+.receipt {
+    width: 50mm; /* O'zgartirildi 48mm dan 50mm ga */
+    padding: 5px;
+    background-color: white;
+    font-size: 10px;
+    line-height: 1.2;
+}
+
+.receipt-header {
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 3px;
+    text-align: center;
+}
+
+.line {
+    border-bottom: 1px dashed black;
+    margin: 3px 0;
+}
+
+.transaction-details {
+    font-size: 8px;
+    text-align: left;
+    margin-bottom: 3px;
+}
+
+.transaction-details div {
+    display: flex;
+    justify-content: space-between;
+}
+
+.item-header {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    border-bottom: 1px dashed black;
+    margin-bottom: 3px;
+    padding-bottom: 3px;
+    font-size: 10px;
+}
+
+.item {
+    display: flex;
+    align-items: flex-start;
+    font-size: 8px;
+    margin-bottom: 2px;
+}
+
+.item-number {
+    width: 15px;
+    margin-right: 2px;
+    text-align: left;
+}
+
+.item-name {
+    width: 20mm;
+    word-break: break-word;
+    white-space: normal;
+    text-align: left;
+}
+
+.item-quantity {
+    width: 12mm;
+    text-align: right;
+    margin-right: 2px;
+}
+
+.item-price {
+    width: 12mm;
+    text-align: right;
+}
+
+.total-section {
+    font-weight: bold;
+    font-size: 10px;
+    margin-top: 3px;
+}
+
+.total-section .item {
+    display: flex;
+    justify-content: space-between;
+}
+
+.qr-code {
+    text-align: center;
+    margin-top: 5px;
+}
+
+.qr-code img {
+    width: 80px;
+    height: 80px;
+}
+
+.footer {
+    margin-top: 5px;
+    font-size: 8px;
+    text-align: center;
+}

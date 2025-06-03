@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Klient Tarixi</title>
+    <link rel="stylesheet" href="/static/css/client_history.css">
+</head>
+<body onload="window.print()" onfocus="window.close()">
+    <div class="container">
+        <div class="header">
+            <h1>Yuksalish</h1>
+            <div class="client-info">
+                <p>Klient: {{ klent.ismi }}</p>
+                <p>Telefon: {{ klent.telefon_raqami }}</p>
+                <p>Balans: {{ klent.balans }} so'm</p>
+                <p>Sana: {{ sana }}</p>
+            </div>
+        </div>
+        <div class="section">
+            <h2>Umumiy Chiqimlar Tarixi</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>№ Tartib raqam</th>
+                        <th>Sana</th>
+                        <th>Mahsulotlar</th>
+                        <th>Jami Summa</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for chiqim in chiqimlar %}
+                        <tr>
+                            <td>{{ forloop.counter }}</td>
+                            <td>{{ chiqim.sana }}</td>
+                            <td>{{ chiqim.mahsulotlar }}</td>
+                            <td>{{ chiqim.jami_xarid_summasi }} so'm</td>
+                        </tr>
+                    {% empty %}
+                        <tr><td colspan="4">Chiqimlar mavjud emas</td></tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="section">
+            <h2>To'lovlar Tarixi</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>№ Tartib raqam</th>
+                        <th>Sana</th>
+                        <th>Summa</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for tolov in tolovlar %}
+                        <tr>
+                            <td>{{ forloop.counter }}</td>
+                            <td>{{ tolov.sana }}</td>
+                            <td>{{ tolov.summa }} so'm</td>
+                        </tr>
+                    {% empty %}
+                        <tr><td colspan="3">To'lovlar mavjud emas</td></tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="footer">
+            Bizni tanlaganingiz uchun rahmat!
+        </div>
+    </div>
+    <script src="/static/js/client_history.js"></script>
+</body>
+</html>

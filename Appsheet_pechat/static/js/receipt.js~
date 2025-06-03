@@ -1,0 +1,14 @@
+document.addEventListener('DOMContentLoaded', function() {
+    const params = new URLSearchParams(window.location.search);
+    const chiqim_id = params.get('chiqim_id');
+    const mijoz = params.get('mijoz');
+    const jami_xarid_summasi = params.get('jami_xarid_summasi');
+    const boshlangich_tolov = params.get('boshlangich_tolov');
+    const qoldiq_summa = params.get('qoldiq_summa');
+    const balans = params.get('balans');
+    const sana = params.get('sana');
+
+    const qrData = `Tranzaksiya ID: ${chiqim_id}\nMijoz: ${mijoz}\nJami: ${jami_xarid_summasi} so'm\nTo'landi: ${boshlangich_tolov} so'm\nQarz: ${qoldiq_summa} so'm\nBalans: ${balans} so'm\nSana: ${sana}`;
+    const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=${encodeURIComponent(qrData)}`;
+    document.getElementById('qr-code').src = qrCodeUrl;
+});
